@@ -1,0 +1,67 @@
+<div class="container">
+    <h1>Create New Post</h1>  
+    <a href="#" routerLink="/post/index" class="btn btn-primary">Back</a>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="form-group">
+            <label for="id_Tecnico">id_Tecnico:</label>
+            <input 
+                formControlName="id_Tecnico"
+                id="id_Tecnico" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f['id_Tecnico'].touched && f['id_Tecnico'].invalid" class="alert alert-danger">
+            <div *ngIf="f['id_Tecnico'].errors && f['id_Tecnico'].errors['required']">id_Tecnico is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Rut">Rut</label>
+            <textarea 
+                formControlName="Rut"
+                id="Rut" 
+                type="text" 
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['Rut'].touched && f['Rut'].invalid" class="alert alert-danger">
+            <div *ngIf="f['Rut'].errors && f['Rut'].errors['required']">Rut is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Nombre">Nombre</label>
+            <textarea 
+                formControlName="Nombre"
+                id="Nombre" 
+                type="text" 
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['Nombre'].touched && f['Nombre'].invalid" class="alert alert-danger">
+            <div *ngIf="f['Nombre'].errors && f['Nombre'].errors['required']">Nombre is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Email">Email</label>
+            <textarea 
+                formControlName="Email"
+                id="Email" 
+                type="text" 
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['Email'].touched && f['Email'].invalid" class="alert alert-danger">
+            <div *ngIf="f['Email'].errors && f['Email'].errors['required']">Email is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Fecha_contrato">Fecha_contrato</label>
+            <textarea 
+                formControlName="Fecha_contrato"
+                id="Fecha_contrato" 
+                type="text" 
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['Fecha_contrato'].touched && f['Fecha_contrato'].invalid" class="alert alert-danger">
+            <div *ngIf="f['Fecha_contrato'].errors && f['Fecha_contrato'].errors['required']">Fecha_contrato is required.</div>
+            </div>
+        </div>
+        
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+</div>

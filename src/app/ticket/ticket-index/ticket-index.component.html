@@ -10,6 +10,7 @@
                 <th>Fecha_Apertura</th>
                 <th>Fecha_Cierre</th>
                 <th>Estado</th>
+                <th>Prioridad</th>
                 <th width="250px">Action</th>
               </tr>
          </thead>
@@ -21,6 +22,7 @@
                 <td>{{ ticket.Fecha_Apertura }}</td>
                 <td>{{ ticket.Fecha_Cierre }}</td>
                 <td>{{ ticket.Estado }}</td>
+                <td>{{ ticket.Prioridad }}</td>
                 <td>
                   <a href="#" [routerLink]="['/ticket/', ticket.id_Ticket, 'ticket-view']" class="btn btn-info">View</a>
                   <a href="#" [routerLink]="['/ticket/', ticket.id_Ticket, 'ticket-edit']" class="btn btn-primary">Edit</a>

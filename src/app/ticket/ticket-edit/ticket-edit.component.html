@@ -42,9 +42,18 @@
                 class="form-control"
                 rows="3"
                 placeholder="Añadir comentarios sobre las acciones tomadas"></textarea>
-                
           </div>
           
+          <div class="form-group">
+            <label for="Prioridad">Prioridad</label>
+            <select formControlName="Prioridad" id="Prioridad" class="form-control">
+              <option value="Alta">Alta</option>
+              <option value="Media">Media</option>
+            </select>
+            <div *ngIf="f['Prioridad'].touched && f['Prioridad'].invalid" class="alert alert-danger">
+              <div *ngIf="f['Prioridad'].errors && f['Prioridad'].errors['required']">Prioridad is required.</div>
+            </div>
+          </div>
           
        
     

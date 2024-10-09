@@ -41,6 +41,7 @@ export class TicketEditComponent {
       Fecha_Cierre: new FormControl('', [Validators.required]),
       Estado: new FormControl('', Validators.required),
       Comentario: new FormControl('', Validators.required),
+      Prioridad: new FormControl('', Validators.required),
 
 
     });

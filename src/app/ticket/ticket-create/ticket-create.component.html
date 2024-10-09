@@ -39,12 +39,11 @@
         </div>
         <div class="form-group">
             <label for="Fecha_Apertura">Fecha_Apertura</label>
-            <textarea 
+            <input 
                 formControlName="Fecha_Apertura"
                 id="Fecha_Apertura" 
-                type="text" 
+                type="date" 
                 class="form-control">
-            </textarea>
             <div *ngIf="f['Fecha_Apertura'].touched && f['Fecha_Apertura'].invalid" class="alert alert-danger">
             <div *ngIf="f['Fecha_Apertura'].errors && f['Fecha_Apertura'].errors['required']">Fecha is required.</div>
             </div>

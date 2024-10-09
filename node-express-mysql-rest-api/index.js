@@ -128,9 +128,9 @@ app.get('/ticket', (req, res) => {
 
 //Para crear tickets 
 app.post('/ticket/ticket-create', (req, res) => {
-  const { id_Ticket, Tipo,Detalle,Fecha_Apertura,Fecha_Cierre,Estado,Cliente_id_Cliente,Comentario } = req.body;
+  const { id_Ticket, Tipo,Detalle,Fecha_Apertura,Fecha_Cierre,Estado,Cliente_id_Cliente,Comentario,Prioridad } = req.body;
   console.log(req.body)
-  db.query('INSERT INTO ticket ( id_Ticket, Tipo,Detalle,Fecha_Apertura,Fecha_Cierre,Estado,Cliente_id_Cliente,Comentario) VALUES (?,?,?,?,?,?,?,?)', [ id_Ticket, Tipo,Detalle,Fecha_Apertura,Fecha_Cierre,Estado,Cliente_id_Cliente,Comentario], (err, result) => {
+  db.query('INSERT INTO ticket ( id_Ticket, Tipo,Detalle,Fecha_Apertura,Fecha_Cierre,Estado,Cliente_id_Cliente,Comentario,Prioridad ) VALUES (?,?,?,?,?,?,?,?,?)', [ id_Ticket, Tipo,Detalle,Fecha_Apertura,Fecha_Cierre,Estado,Cliente_id_Cliente,Comentario,Prioridad], (err, result) => {
     if (err) {
       res.status(500).send('Error creating post');
       return;
@@ -168,8 +168,8 @@ app.get('/ticket/:id_Ticket', (req, res) => {
 app.put('/ticket_update/:id_Ticket', (req, res) => {
   const postId = req.params.id_Ticket;
   console.log(req.body,' ' ,req.params.id_Ticket)
-  const { Fecha_Cierre, Estado, Comentario } = req.body;
-  db.query('UPDATE pgrem.ticket SET Fecha_Cierre = ?, Estado = ?, Comentario = ?  WHERE id_Ticket = ? ' ,[ Fecha_Cierre,Estado,Comentario,postId], err => {
+  const { Fecha_Cierre, Estado, Comentario, Prioridad } = req.body;
+  db.query('UPDATE pgrem.ticket SET Fecha_Cierre = ?, Estado = ?, Comentario = ?, Prioridad=?  WHERE id_Ticket = ? ' ,[ Fecha_Cierre,Estado,Comentario,Prioridad ,postId], err => {
    console.log (err )
     if (err) {
       res.status(500).send('Error updating post');

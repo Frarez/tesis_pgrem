@@ -1,0 +1,55 @@
+<div class="container">
+    <h1>Crear ticket</h1>  
+    <a href="#" routerLink="/ticket/ticket-index" class="btn btn-primary">Back</a> 
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="form-group">
+            <label for="id_Ticket">id_Ticket:</label>
+            <input 
+                formControlName="id_Ticket"
+                id="id_Ticket" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="f['id_Ticket'].touched && f['id_Ticket'].invalid" class="alert alert-danger">
+            <div *ngIf="f['id_Ticket'].errors && f['id_Ticket'].errors['required']">id_Ticket is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Tipo">Tipo</label>
+            <textarea 
+                formControlName="Tipo"
+                id="Tipo" 
+                type="text" 
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['Tipo'].touched && f['Tipo'].invalid" class="alert alert-danger">
+            <div *ngIf="f['Tipo'].errors && f['Tipo'].errors['required']">Tipo is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Detalle">Detalle</label>
+            <textarea 
+                formControlName="Detalle"
+                id="Detalle" 
+                type="text" 
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['Detalle'].touched && f['Detalle'].invalid" class="alert alert-danger">
+            <div *ngIf="f['Detalle'].errors && f['Detalle'].errors['required']">Detalle is required.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Fecha_Apertura">Fecha_Apertura</label>
+            <textarea 
+                formControlName="Fecha_Apertura"
+                id="Fecha_Apertura" 
+                type="text" 
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['Fecha_Apertura'].touched && f['Fecha_Apertura'].invalid" class="alert alert-danger">
+            <div *ngIf="f['Fecha_Apertura'].errors && f['Fecha_Apertura'].errors['required']">Fecha is required.</div>
+            </div>
+        </div>
+        
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+</div>

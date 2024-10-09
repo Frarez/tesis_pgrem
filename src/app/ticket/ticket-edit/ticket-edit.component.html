@@ -1,0 +1,55 @@
+<div class="container">
+
+    <h1>Actualizar ticket</h1>
+
+   
+
+    <a href="#" routerLink="/ticket/ticket-index" class="btn btn-primary">Back</a>
+
+          
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        
+        <div class="form-group">
+            <label for="Fecha_Cierre">Fecha Cierre</label>
+            <input 
+                formControlName="Fecha_Cierre"
+                id="Fecha_Cierre" 
+                type="date"
+                class="form-control">
+            <div *ngIf="f['Fecha_Cierre'].touched && f['Fecha_Cierre'].invalid" class="alert alert-danger">
+              <div *ngIf="f['Fecha_Cierre'].errors && f['Fecha_Cierre'].errors['required']">Fecha Cierre is required.</div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="Estado">Estado</label>
+            <select formControlName="Estado" id="Estado" class="form-control">
+              <option value="en progreso">En Progreso</option>
+              <option value="resuelto">Resuelto</option>
+              <option value="cerrado">Cerrado</option>
+            </select>
+            <div *ngIf="f['Estado'].touched && f['Estado'].invalid" class="alert alert-danger">
+              <div *ngIf="f['Estado'].errors && f['Estado'].errors['required']">Estado is required.</div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="Comentario">Comentario</label>
+            <textarea 
+                formControlName="Comentario" 
+                id="Comentario"
+                class="form-control"
+                rows="3"
+                placeholder="Añadir comentarios sobre las acciones tomadas"></textarea>
+                
+          </div>
+          
+          
+       
+    
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Update</button>
+
+    </form>
+
+</div>  

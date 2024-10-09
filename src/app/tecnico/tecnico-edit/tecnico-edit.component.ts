@@ -39,6 +39,7 @@ export class TecnicoEditComponent {
       Nombre: new FormControl('', Validators.required),
       Email: new FormControl('', Validators.required),
       Fecha_contrato: new FormControl('', Validators.required)
+      
 
     });
 

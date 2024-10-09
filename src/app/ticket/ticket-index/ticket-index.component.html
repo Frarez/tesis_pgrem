@@ -1,0 +1,31 @@
+<div class="container">
+    <h1>Tickets de usuario</h1>
+    <a href="#" routerLink="/ticket/ticket-create/" class="btn btn-success">Crear ticket</a>      
+    <table class="table table-striped table-bordered">
+        <thead>
+              <tr>
+                <th>id_Ticket</th>
+                <th>Tipo</th>
+                <th>Detalle</th>
+                <th>Fecha_Apertura</th>
+                <th>Fecha_Cierre</th>
+                <th>Estado</th>
+                <th width="250px">Action</th>
+              </tr>
+         </thead>
+         <tbody>
+              <tr *ngFor="let ticket of tickets">
+                <td>{{ ticket.id_Ticket }}</td>
+                <td>{{ ticket.Tipo }}</td>
+                <td>{{ ticket.Detalle }}</td>
+                <td>{{ ticket.Fecha_Apertura }}</td>
+                <td>{{ ticket.Fecha_Cierre }}</td>
+                <td>{{ ticket.Estado }}</td>
+                <td>
+                  <a href="#" [routerLink]="['/ticket/', ticket.id_Ticket, 'ticket-view']" class="btn btn-info">View</a>
+                  <a href="#" [routerLink]="['/ticket/', ticket.id_Ticket, 'ticket-edit']" class="btn btn-primary">Edit</a>
+                </td>
+              </tr>
+        </tbody>
+    </table>
+</div>
